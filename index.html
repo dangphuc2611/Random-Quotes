@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inspire Me — Random Quotes</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="min-h-screen bg-animated text-slate-900 antialiased selection:bg-indigo-200 selection:text-indigo-900">
+  <main class="min-h-screen grid place-items-center px-4">
+    <section class="w-full max-w-3xl">
+      <!-- Header -->
+      <header class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <!-- Simple SVG logo -->
+          <svg viewBox="0 0 64 64" class="w-10 h-10">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#22c55e"/>
+                <stop offset="50%" stop-color="#0ea5e9"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="30" fill="url(#g)" opacity="0.25"/>
+            <path d="M16 40c0-10 8-18 18-18v6c-6 0-12 6-12 12h-6zm18 0c0-10 8-18 18-18v6c-6 0-12 6-12 12h-6z" fill="url(#g)"/>
+          </svg>
+          <div>
+            <h1 class="text-2xl font-semibold tracking-tight">Inspire Me</h1>
+            <p class="text-sm text-slate-600">Tap for a fresh thought</p>
+          </div>
+        </div>
+        <button id="copyBtn"
+                class="focus-ring inline-flex items-center gap-2 rounded-xl bg-white/70 glass px-4 py-2 text-sm font-medium text-slate-800 shadow-sm ring-1 ring-black/5 hover:bg-white hover:shadow transition">
+          <span>Copy</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2M16 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- Quote Card -->
+      <div class="relative">
+        <!-- Decorative quote mark -->
+        <div class="absolute -top-6 -left-4 md:-left-8">
+          <svg class="quote-mark w-20 h-20 md:w-28 md:h-28" viewBox="0 0 64 64" fill="currentColor">
+            <path d="M22 14c-8 0-14 6-14 14 0 6 4 10 10 10-2 8-8 12-14 14 10 2 20-6 20-20 0-10-2-18-2-18zm28 0c-8 0-14 6-14 14 0 6 4 10 10 10-2 8-8 12-14 14 10 2 20-6 20-20 0-10-2-18-2-18z"/>
+          </svg>
+        </div>
+
+        <article class="glass rounded-2xl bg-white/60 p-6 md:p-8 shadow-xl ring-1 ring-black/5">
+          <blockquote class="fade-in">
+            <p id="quoteText" class="text-xl md:text-2xl leading-relaxed text-slate-900">
+              Quotes 1
+            </p>
+            <footer class="mt-4 md:mt-6">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-full bg-gradient-to-tr from-indigo-400 via-sky-400 to-emerald-400 opacity-70"></div>
+                <cite id="quoteAuthor" class="not-italic text-slate-700">Author: 1</cite>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Controls -->
+          <div class="mt-6 md:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <button id="newQuoteBtn"
+                    class="focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white shadow-md hover:bg-indigo-700 active:bg-indigo-800 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6M20 20v-6h-6M20 4l-6 6M4 20l6-6"/>
+              </svg>
+              New Quote
+            </button>
+
+            <div class="flex-1"></div>
+          </div>
+        </article>
+
+        <!-- Footer help -->
+        <p class="mt-4 text-xs text-slate-600/90">
+          Tip: Press the spacebar for a new quote.
+        </p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  </body>
+
+  <!-- <script>
+    // Small curated set for demo; add more if you like
+    const QUOTES = [
+      { text: "The best way to predict the future is to create it.", author: "Peter Drucker", category: "motivation" },
+      { text: "Simplicity is the ultimate sophistication.", author: "Leonardo da Vinci", category: "creativity" },
+      { text: "What you do every day matters more than what you do once in a while.", author: "Gretchen Rubin", category: "wisdom" },
+      { text: "It always seems impossible until it’s done.", author: "Nelson Mandela", category: "motivation" },
+      { text: "Your mind is a garden. Your thoughts are the seeds.", author: "Unknown", category: "life" },
+      { text: "Creativity is intelligence having fun.", author: "Albert Einstein", category: "creativity" },
+      { text: "The quieter you become, the more you can hear.", author: "Ram Dass", category: "wisdom" },
+      { text: "Make it simple, but significant.", author: "Don Draper", category: "creativity" },
+      { text: "Little by little, a little becomes a lot.", author: "Tanzanian Proverb", category: "wisdom" },
+      { text: "Life is 10% what happens to us and 90% how we react to it.", author: "Charles R. Swindoll", category: "life" }
+    ].map((q, i) => ({ id: i + 1, ...q }));
+
+    // Elements
+    const quoteText = document.getElementById('quoteText');
+    const quoteAuthor = document.getElementById('quoteAuthor');
+    const newQuoteBtn = document.getElementById('newQuoteBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const categorySelect = document.getElementById('category');
+    const lengthSelect = document.getElementById('length');
+    const metaIndex = document.getElementById('metaIndex').querySelector('span:last-child');
+    const metaCategory = document.getElementById('metaCategory').querySelector('span:last-child');
+    const metaLength = document.getElementById('metaLength').querySelector('span:last-child');
+
+    // State
+    let filtered = [...QUOTES];
+    let currentIndex = -1;
+
+    function getLengthBucket(text) {
+      const len = text.length;
+      if (len < 60) return 'short';
+      if (len < 140) return 'medium';
+      return 'long';
+    }
+
+    function applyFilters() {
+      const cat = categorySelect.value;
+      const len = lengthSelect.value;
+
+      filtered = QUOTES.filter(q => {
+        const catOk = (cat === 'all') ? true : q.category === cat;
+        const lenOk = (len === 'any') ? true : getLengthBucket(q.text) === len;
+        return catOk && lenOk;
+      });
+
+      // Update meta chips
+      metaCategory.textContent = cat === 'all' ? 'All' : cat[0].toUpperCase() + cat.slice(1);
+      metaLength.textContent = len === 'any' ? 'Any' : len[0].toUpperCase() + len.slice(1);
+
+      // Reset index so the next random pick feels fresh
+      currentIndex = -1;
+      showRandomQuote();
+    }
+
+    function showRandomQuote() {
+      if (filtered.length === 0) {
+        quoteText.textContent = "No quotes match your filters. Try changing the category or length.";
+        quoteAuthor.textContent = "— None —";
+        metaIndex.textContent = "0 of 0";
+        return;
+      }
+
+      // Avoid repeating the same quote back-to-back when possible
+      let idx;
+      if (filtered.length === 1) {
+        idx = 0;
+      } else {
+        do {
+          idx = Math.floor(Math.random() * filtered.length);
+        } while (idx === currentIndex);
+      }
+      currentIndex = idx;
+
+      // Animate in
+      const block = quoteText.closest('blockquote');
+      block.classList.remove('fade-in');
+      // Force reflow to restart animation
+      void block.offsetWidth;
+      block.classList.add('fade-in');
+
+      // Update content
+      const q = filtered[idx];
+      quoteText.textContent = `“${q.text}”`;
+      quoteAuthor.textContent = q.author ? q.author : "Unknown";
+
+      // Update index meta
+      metaIndex.textContent = `${idx + 1} of ${filtered.length}`;
+    }
+
+    function copyCurrentQuote() {
+      const text = `${quoteText.textContent} — ${quoteAuthor.textContent}`;
+      // Use Clipboard API where available
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(fallbackCopy);
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      document.body.removeChild(ta);
+      showCopied();
+    }
+
+    function showCopied() {
+      const original = copyBtn.innerHTML;
+      copyBtn.innerHTML = `<span>Copied!</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-90" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.364 7.364a1 1 0 01-1.414 0L3.293 9.536a1 1 0 111.414-1.414l3.05 3.05 6.657-6.657a1 1 0 011.293-.222z" clip-rule="evenodd"/>
+        </svg>`;
+      copyBtn.classList.add('bg-emerald-500','text-white','hover:bg-emerald-600');
+      setTimeout(() => {
+        copyBtn.classList.remove('bg-emerald-500','text-white','hover:bg-emerald-600');
+        copyBtn.innerHTML = original;
+      }, 1200);
+    }
+
+    // Events
+    newQuoteBtn.addEventListener('click', showRandomQuote);
+    copyBtn.addEventListener('click', copyCurrentQuote);
+    categorySelect.addEventListener('change', applyFilters);
+    lengthSelect.addEventListener('change', applyFilters);
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        showRandomQuote();
+      }
+    });
+
+    // Initial render
+    applyFilters();
+  </script> -->
+<!-- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97ef55ea75300465',t:'MTc1Nzg0NzE1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body> -->
+</html>
